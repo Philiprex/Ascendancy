@@ -16,15 +16,15 @@ class Player():
             "money": 0
         }
         self.items = {
-            "potions": 0,         # costs
-            "food": 0,            # costs
-            "wool": 0,            # sells for
-            "meat": 0,            # sells for
-            "artifacts": 0,       # sells for
-            "fireballs": 0,       # costs
-            "demon scales": 0,    # sells for
+            "potions": 0,         # costs 15
+            "food": 0,
+            "wool": 0,            # sells for 2
+            "meat": 0,            # sells for 5
+            "artifacts": 0,       # sells for 20
+            "fireballs": 0,       # costs 9
+            "demon scales": 0,    # sells for 10
             "souls": 0,
-            "berserk": 0          # costs
+            "berserk": 0          # costs 30
         }
         self.equipment = {
             "sword": True,      # damage: 7
@@ -32,7 +32,7 @@ class Player():
             "Shear": False,     # damage: 9
             "Slayer": False,    # damage: 12
             "Redeemer": False,  # damage: 9
-            "armor": False,
+            "armor": False,     # A costs 20, AA costs 35
             "armor rating": 0,  # decided by type purchased
             "armor health": 0   # decided by how many times hit
         }
