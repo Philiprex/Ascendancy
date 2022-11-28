@@ -60,12 +60,9 @@ def actionOptions(p1):
         print("M) Visit the Merchants' Market")
         print("S) Visit the Town Square")
         print("L) Leave Town")
-    if p1.inTown and ((p1.stats["holiness"] == "Holy" and
-                       p1.equipment["Redeemer"])
-                      or (p1.stats["goodliness"] == "Hero" and
-                      p1.equipment["Shear"])
-                      or (p1.stats["mercantilism"] == "Hunter" and
-                      p1.equipment["Slayer"])):
+    if p1.inTown and (p1.equipment["Redeemer"]
+                      or p1.equipment["Shear"]
+                      or p1.equipment["Slayer"]):
         print("A) Go to Anomaly to face Thon Bane")
 
 
