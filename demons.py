@@ -178,7 +178,6 @@ class SolutionDemon(Demon):
         if self.aBreak:
             print("Your Armor broke!")
 
-
     def specialAttack(self):
         question = questions.solutionQuestions(random.randrange(1, 5))
         answer = input(question[0] + " Y/N\n")

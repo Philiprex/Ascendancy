@@ -65,4 +65,3 @@ class TownSquare():
         else:
             narratives.goodSquare()
             self.p1.stats["health"] += 20
-

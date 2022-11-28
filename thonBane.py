@@ -205,4 +205,3 @@ class ThonBane():
                 print("\nGame over.")
                 time.sleep(20)
                 exit()
-        # add in end game
