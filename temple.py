@@ -7,6 +7,7 @@ class Temple():
         self.p1 = p1
         self.returning = 0
 
+    # calls options, feeds response into execute
     def visitTemple(self):
         if not self.returning:
             self.firstVisit()
@@ -17,6 +18,7 @@ class Temple():
         choice = input().upper()
         self.execute(choice)
 
+    # prints temple options depending on money and status
     def templeOptions(self):
         print("P) Ask for a Prayer")
         if self.p1.stats["money"] >= 25:
@@ -28,6 +30,7 @@ class Temple():
             print("E) Be Enlightened")
         print("L) Leave the Temple")
 
+    # executes player choice. also a hodgepodge of temple-specific mechanics
     def execute(self, choice):
         if choice == "P" and self.p1.stats["holiness"] != "Infidel":
             self.p1.stats["sanctity"] += 4
@@ -68,6 +71,7 @@ class Temple():
         elif choice == "L":
             pass
 
+    # only run the first time user goes to temple
     def firstVisit(self):
         narratives.firstTemple()
         if self.p1.stats["sanctity"] < 50:

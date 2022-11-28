@@ -7,6 +7,7 @@ class TownSquare():
         self.p1 = p1
         self.returning = 0
 
+    # calls options, feeds response into execute
     def visitSquare(self):
         if not self.returning:
             self.firstVisit()
@@ -16,6 +17,7 @@ class TownSquare():
         choice = input().upper()
         self.execute(choice)
 
+    # prints square options depending on money and status
     def squareOptions(self):
         print("F) Ask for Food")
         if self.p1.items["demon scales"]:
@@ -25,6 +27,7 @@ class TownSquare():
             print("E) Become Elevated")
         print("L) Leave the Town Square")
 
+    # executes player choice. also a hodgepodge of square-specific mechanics
     def execute(self, choice):
         if choice == "F" and self.p1.stats["goodliness"] == "Hero":
             narratives.goodSquare()
@@ -54,6 +57,7 @@ class TownSquare():
         elif choice == "L":
             pass
 
+    #  only run the first time user goes to temple
     def firstVisit(self):
         narratives.firstSquare()
         if self.p1.stats["goodness"] < 50:

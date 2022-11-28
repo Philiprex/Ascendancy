@@ -13,6 +13,7 @@ class Market():
             "demon scales": False
         }
 
+    # calls options, feeds response into execute
     def visitMarket(self):
         if not self.returning:
             self.firstVisit()
@@ -22,6 +23,7 @@ class Market():
         choice = input().upper()
         self.execute(choice)
 
+    # prints market options depending on money and status
     def marketOptions(self):
         self.checkItems()
         if self.hasItems:
@@ -33,6 +35,7 @@ class Market():
             print("H) Become Hunter")
         print("L) Leave Market")
 
+    # hodgepodge of buy/sell mechanics and executing simple commands
     def execute(self, choice):
         if choice == "S":
             self.sellOptions()
@@ -81,6 +84,7 @@ class Market():
         elif choice == "P":
             pass
 
+    # provides selling options based on availability
     def sellOptions(self):
         print("\nWhat would you like to sell?")
         if self.items["wool"]:
@@ -93,6 +97,7 @@ class Market():
             print("S) Demon Scales")
         print("L) Leave Market")
 
+    # executes a sale based on number the player wants to sell
     def sell(self, item, itemName, price):
         print(f"\nYou have {self.p1.items[item]} {itemName}. How many would "
               f"you like to sell for ${price} each?")
@@ -103,6 +108,7 @@ class Market():
         if item == "artifacts":
             return sellNum
 
+    # provides buying options based on money
     def buyOptions(self):
         print("\nWhat would you like to buy?")
         if self.p1.stats["money"] >= 15:
@@ -120,6 +126,8 @@ class Market():
             print("AA) 7 defense Advanced Armor: Cost $35")
         print("L) Leave Market")
 
+    # executes buy based on number a player wants to buy
+    # includes suggested max based on available funds, but no enforcement
     def buy(self, item, itemName, cost):
         print(f"\nHow many {itemName} would you like to buy for "
               f"{cost} each? Max: {self.p1.stats['money']//cost}")
@@ -128,6 +136,7 @@ class Market():
         self.p1.stats["money"] -= sellNum * cost
         print(f"\nYou have bought {sellNum} {itemName} for ${sellNum * cost}.")
 
+    # armor gets its own buy cause it has multiple properties unlike others
     def buyArmor(self, itemName, cost, rating, health):
         print(f"\nAre you sure you would like to buy {itemName} "
               f"for ${cost}? Y/N")
@@ -140,6 +149,7 @@ class Market():
         else:
             pass
 
+    # checks if the user has anything they can sell
     def checkItems(self):
         for i in self.p1.items:
             if i in ["potions", "food", "fireballs", "souls", "berserk"]:
@@ -155,6 +165,7 @@ class Market():
                 self.hasItems = True
                 break
 
+    # only run the first time user goes to market
     def firstVisit(self):
         narratives.firstMarket()
         if self.p1.stats["trading"] < 50:

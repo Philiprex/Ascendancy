@@ -1,11 +1,11 @@
 def disclaimer():
-    print("\nWelcome to Ascendancy, an adventure through a word of "
-          "mysterious beasts and competing interests. Please be careful "
-          "text entry. While capitalization does not matter, it is "
-          "imperative that you enter the character(s) before the ). It is "
-          "also suggested for exposition's sake that upon your first trip to "
-          "the Town, you first go to the Town Square I hope you enjoy your "
-          "journey!")
+    print("\nAscendency by Philip Eigen, 2022\n\nWelcome to Ascendancy, an "
+          "adventure through a word of mysterious beasts and competing "
+          "interests. Please be careful text entry. While capitalization does "
+          "not matter, it is imperative that you enter the character(s) "
+          "before the ). It is also suggested for exposition's sake that upon "
+          "your first trip to the Town, you first go to the Town Square I "
+          "hope you enjoy your journey!")
 
 def open():
     print("It has been long since you have seen Esme and Abraham. You "
@@ -277,6 +277,20 @@ def thonBaneHunterIntro():
           "energy and seems to cast a shadow on the open sky. You've come "
           "far, there's no turning back. You will destroy Thon Bane.")
 
+def thonHit1(damage):
+      print("Thon Bane sends a torrent of sharp Scales at you doing "
+            f"{damage} damage!")
+
+
+def thonHit2(damage):
+      print("Tendrils emerge from Thon Bane, striking you in sequence. "
+            f"You take {damage} damage!")
+
+
+def thonHit3(damage):
+      print("A beam of dark energy shoots out of Thon Bane, penetrating "
+            f"deep into your being and causing {damage} damage!")
+
 
 def thonHolyHelp():
     print("\nEvery strike, your strength drains. It becomes apparent that "
@@ -315,12 +329,51 @@ def thonHunterHelp():
 
 
 def thonHolyDeath():
-    pass
+    print("\nFilled with fervor incomparable to anything you've experienced "
+          "before, you strike Thon Bane. His corporeal evil is no match for "
+          "the Holy might of the Redeemer. As with the Demons who have "
+          "similarly fallen to the Redeemer, you are met with bursting light "
+          "and piercing noise. But these manifestations are different. The "
+          "is unbelievably bright and beautiful. And the noise comes not as "
+          "one unholy shriek, but as a symphony of voices calling out in "
+          "rejoice. A flood of Souls start flowing into the Redeemer. Damned "
+          "souls who may now be set free by the Clerics. Next comes the Soul "
+          "of Thon Bane himself. As conflicted as you feel to offer him "
+          "justice, you know that it was the right thing to do And then, "
+          "before your eyes, you see them. Just in front of you appear Esme "
+          "and Abraham. As splendid, ghostly manifestations, they smile at "
+          "you. They ~see~ you, and you see them. With all the love in your "
+          "heart you cherish these few moments before they too are collected "
+          "by the Redeemer. As you leave the Anomaly, you are filled with a "
+          "powerful mix of joy and sorrow. You know you will never meet your "
+          "wife and son again. But you know that their Souls will be put to "
+          "peace, and these lands will be threatened no more by the horror of "
+          "Thon Bane.")
 
 
 def thonHeroDeath():
-    pass
+    print("\nInspired by your love for the people of this land, you put all "
+          "of your remaining energy into one final strike. It tears through "
+          "Thon Bane's wretched body. As his body shreds into a million "
+          "pieces of dark matter, humans begin to corporate around him. "
+          "Dazed and confused, you begin to make sense of it. These people "
+          "were victims of Thon Bane's devilish hounds just like your dear "
+          "Esme and Abraham. As the realization sets in, you begin pushing "
+          "through the crowd. And finally, there before you, they appear. "
+          "As you engage with your joyous reunion you imaging the relief and "
+          "happiness you will have brought to the Townsfolk. You have "
+          "returned to them their loved ones, and have assured for them that "
+          "they need never worry about the scourge of Thon Bane again.")
 
 
 def thonHunterDeath():
-    pass
+    print("\nUsing all the fury in your heart, you slash into Thon Bane on "
+          "final time. As Slayer tears through him, he bursts in to a "
+          "horrible dark flame as Scale shrapnel explodes from within. When "
+          "he finally disappears, you look around. You stand alone in a ruins "
+          "with little more than a mountain of Scales to show for your work. "
+          "After collecting them all, you set off on the road back to Town. "
+          "It is time to accept that your Esme and Abraham will never be "
+          "returned to you. But that was your old life. You are a hunter now. "
+          "A lone ranger. A killer. At least you can make some money at "
+          "the Market.")

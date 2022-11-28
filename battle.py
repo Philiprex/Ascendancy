@@ -11,7 +11,6 @@ class Battle():
         self.equip()
         self.death = self.battle()
 
-
     # depending on what's available, offers weapon options. Sets equipped and hitPoints
     def equip(self):
         print("\nWhich weapon would you like to equip?")
@@ -42,9 +41,10 @@ class Battle():
             self.p1.equipped = "Redeemer"
             self.p1.hitPoints = 9
 
-    # provides action inputs
+    # provides action inputs depending on availability and enemy
     def battleOptions(self):
         print("\nWhat action would you like to perform?\nA) Attack")
+        # once you decide whether to kill, there's no going back
         if self.p1.equipped not in ["Slayer", "Redeemer"]:
             print("R) Re-Equip")
         if not self.specialCounter and self.enemy.type != "sheep":
@@ -77,7 +77,7 @@ class Battle():
             print("\nYou drank a potion and gained 20 health!\n")
         elif choice == "FO":
             self.p1.stats["health"] += 7
-            self.p1.stats["food"] -= 1
+            self.p1.items["food"] -= 1
             print("\nYou ate some bread. You can taste the care " +
                   "put into it by the baker. You gain 7 health!\n")
         elif choice == "B":
@@ -85,6 +85,7 @@ class Battle():
             self.p1.berserkStatus = True
             print("\nYou feel unstoppable. Your foe WILL be defeated!\n")
 
+    # battle loop, p1, death check, enemy, stats. Outside loop: does death
     def battle(self):
         while self.p1.stats["health"] > 0 and self.enemy.health > 0:
             self.battleOptions()

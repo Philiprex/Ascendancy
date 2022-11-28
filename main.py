@@ -11,6 +11,7 @@ from thonBane import ThonBane
 gameOver = False
 
 
+# prints all stats, items, and equipment
 def statusCheck(p1):
     print("\nItems")
     print(
@@ -47,6 +48,7 @@ def statusCheck(p1):
     )
 
 
+# general options, print depending on location and stats
 def actionOptions(p1):
     print("\nWhat would you like to do?")
     print("I) Check Inventory")
@@ -67,6 +69,7 @@ def actionOptions(p1):
         print("A) Go to Anomaly to face Thon Bane")
 
 
+# does whatever the user enters
 def execute(p1, choice):
     if choice == "I":
         statusCheck(p1)
@@ -87,7 +90,7 @@ def execute(p1, choice):
         return ThonBane(p1).death
 
 
-# gameplay loop once done with opening scene
+# master gameplay loop run after opening scene
 def generalPlay(p1):
     while not gameOver:
         actionOptions(p1)
@@ -95,12 +98,12 @@ def generalPlay(p1):
         death = execute(p1, actionChoice)
         if death:
             print("\nGame over.")
-            time.sleep(1)
-            break
+            time.sleep(10)
+            exit()
         p1.statsUpdate()
 
 
-# sets up play, expedition, and town, and plays opening scene
+# sets up play, expedition, and town, and plays opening scene, calls loop
 def playGame():
     global journey
     global temple
@@ -116,7 +119,7 @@ def playGame():
     generalPlay(p1)
 
 
-# prompt user whether they want to play
+# prompt user whether they want to play, if so calls playGame
 def start():
     choice = input("Would you like to play Ascendancy?\n0) No\n1) Yes\n")
     if choice == "0":

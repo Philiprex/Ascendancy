@@ -31,6 +31,7 @@ class Expedition():
               "sure what it is, but it may be of some use. You put it in "
               "your sack and carry on.")
 
+    # randomly generates an enemy (or an artifact), calls a battle
     def range(self):
         event = random.choice([1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5])
         if event == 1:

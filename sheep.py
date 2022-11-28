@@ -1,3 +1,5 @@
+# this is largely the same as demons so I'm not going to re-comment everything
+# only difference are no armor accounting, shear, and death
 import random
 
 
@@ -9,8 +11,8 @@ class Sheep():
         self.health = 30
 
     def fight(self):
-        aim = random.randrange(3)
-        if aim == 1:
+        aim = random.randrange(5)
+        if aim in [1, 2]:
             print("You were rammed by the disturbed sheep and " +
                   "incurred 4 damage!")
             self.p1.stats["health"] -= 4

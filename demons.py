@@ -10,22 +10,27 @@ class Demon(ABC):
         self.health = None
         self.aBreak = False
 
+    # demon attacking. semi-random damage, different texts, accounts for armor
     @abstractmethod
     def fight(self):
         pass
 
+    # special character attack (has to answer math problem to work)
     @abstractmethod
     def specialAttack(self):
         pass
 
+    # character attacking
     def attack(self):
         print(f"\nYou attacked the demon doing {self.p1.hitPoints} damage.")
         self.health -= self.p1.hitPoints
 
+    # fireballs do 20 damage
     def fireball(self):
         print("\nYou cast a fireball at the demon doing 20 damage!")
         self.health -= 20
 
+    # does death based on equipped weapon and updates stats
     def death(self):
         if self.p1.equipped == "sword":
             self.p1.stats["sanctity"] -= 5

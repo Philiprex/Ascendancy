@@ -1,4 +1,5 @@
-# all of these have a number of question options. Returns q&a as index 0 & 1 of a list
+# all of these have a number of question options
+# Returns q&a as index 0 & 1 of a list
 
 def nPrQuestions(num):
     if num == 1:

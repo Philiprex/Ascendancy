@@ -31,7 +31,7 @@ class Player():
             "stick": True,      # damage: 5
             "Shear": False,     # damage: 9
             "Slayer": False,    # damage: 12
-            "Redeemer": True,  # damage: 9
+            "Redeemer": False,  # damage: 9
             "armor": False,
             "armor rating": 0,  # decided by type purchased
             "armor health": 0   # decided by how many times hit
@@ -40,6 +40,7 @@ class Player():
         self.hitPoints = 7
         self.berserkStatus = False
 
+    # updates statuses and weapons based on stats
     def statsUpdate(self):
         if self.stats["sanctity"] < 33:
             self.stats["holiness"] = "Infidel"
@@ -75,7 +76,7 @@ class Player():
 
         elif self.stats["holiness"] == "Infidel":
             narratives.playerDeaths("Infidel")
-            return False
+            return True
 
         elif self.stats["goodliness"] == "Hero":
             narratives.playerDeaths("Hero")

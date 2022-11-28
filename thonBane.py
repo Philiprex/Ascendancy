@@ -1,6 +1,9 @@
+# reimplements most of battle and demon. I didn't want to actually do the work
+# of making new implementations to those classes
 import random
 import narratives
 import questions
+import time
 
 
 class ThonBane():
@@ -60,6 +63,7 @@ class ThonBane():
         print("\nYou cast a fireball at Thon Bane doing 20 damage!")
         self.health -= 20
 
+    # only new thing here is that he can ask any question
     def specialAttack(self):
         qType = random.randrange(1, 4)
         if qType == 1:
@@ -76,6 +80,7 @@ class ThonBane():
         else:
             print("\nYour attack missed!")
 
+    # if you have low health, you can call for help. This does that
     def helpCall(self):
         if self.p1.stats["holiness"] == "Holy":
             narratives.thonHolyHelp()
@@ -92,7 +97,11 @@ class ThonBane():
             self.p1.stats["health"] -= 3
             print("\nYou take 3 damage!")
 
+    # has multiple text options for when he hits you
     def fight(self):
+        damageTexts = [narratives.thonHit1,
+                       narratives.thonHit2,
+                       narratives.thonHit3]
         damage = random.randrange(0, 31)
         if self.p1.berserkStatus:
             damage -= 9
@@ -106,8 +115,8 @@ class ThonBane():
                 self.p1.equipment["armor health"] = 0
                 self.aBreak = True
         self.p1.stats["health"] -= damage
-        print("Suddenly, what must be the head of the beast emerges and " +
-              f"bites you causing {damage} damage.") # change
+        hitType = random.choice(damageTexts)
+        hitType(damage)
         if self.aBreak:
             print("Your Armor broke!")
 
@@ -156,7 +165,7 @@ class ThonBane():
         elif choice == "C":
             self.helpCall()
 
-
+    # main difference here is that when he dies it ends the game
     def battle(self):
         self.equip()
         while self.p1.stats["health"] > 0 and self.health > 0:
@@ -183,8 +192,17 @@ class ThonBane():
         elif self.health <= 0:
             if self.p1.stats["holiness"] == "Holy":
                 narratives.thonHolyDeath()
+                print("\nGame over.")
+                time.sleep(20)
+                exit()
             elif self.p1.stats["goodliness"] == "Hero":
                 narratives.thonHeroDeath()
-            elif self.p1.stats["holiness"] == "Holy":
+                print("\nGame over.")
+                time.sleep(20)
+                exit()
+            elif self.p1.stats["mercantilism"] == "Hunter":
                 narratives.thonHunterDeath()
+                print("\nGame over.")
+                time.sleep(20)
+                exit()
         # add in end game
