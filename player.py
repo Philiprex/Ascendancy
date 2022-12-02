@@ -53,7 +53,7 @@ class Player():
         if self.stats["goodness"] < 33:
             self.stats["goodliness"] = "Trouble Maker"
             self.equipment["Shear"] = False
-        elif 30 <= self.stats["goodness"] < 66:
+        elif 33 <= self.stats["goodness"] < 66:
             self.stats["goodliness"] = "Commoner"
             self.equipment["Shear"] = False
         elif 66 <= self.stats["goodness"]:

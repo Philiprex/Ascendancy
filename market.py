@@ -169,6 +169,6 @@ class Market():
     def firstVisit(self):
         narratives.firstMarket()
         if self.p1.stats["trading"] < 50:
-            narratives.badSquare()
+            narratives.badMarket()
         else:
             narratives.goodMarket()
